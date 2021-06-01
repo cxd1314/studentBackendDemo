@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper>
-    <resultMap id="studentInfo" type="com.example.student.domain.Student">
+<mapper namespace="com.example.student.mapper.StudentMapper">
+    <resultMap id="StudentInfo" type="com.example.student.domain.Student">
         <result column="id" property="id"/>
         <result column="sn" property="sn"/>
         <result column="username" property="username"/>
@@ -14,6 +14,18 @@
     </resultMap>
 
     <select id="queryList" resultMap="StudentInfo">
-        select * from s_student
+        SELECT *
+        from s_student
+        <where>
+            <if test="username!=null"> and username LIKE concat("%",#{username},"%") </if>
+        </where>
+        limit #{startIndex},#{pagesize}
+    </select>
+
+    <select id="queryCount" resultType="int">
+        select count(*) from s_student
+        <where>
+            <if test="username!=null"> and username LIKE concat("%",#{username},"%") </if>
+        </where>
     </select>
 </mapper>
