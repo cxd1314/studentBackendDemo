@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script  type="text/javascript" th:src="@{/jquery/1.9.1/jquery.js}"></script>
+
+
+    <!--        $(function(){-->
+    <
+    <!--    }-->
+    <script  type="text/javascript"  th:inline="javaScript">
+          $(document).ready(function(){
+                console.log("aaa");
+                 alert("aaa")
+                 $("button").click(function(){
+                alert("aaa");
+
+                });
+
+                var user= {
+
+                "page" : 1,
+
+                "rows" : 10,
+
+                "studentName":"张"
+
+                };
+
+                $.ajax({
+
+                url : "http://localhost:8083/student/getStudentList",
+
+                type : "POST",
+
+                async : true,
+
+                data : user,
+
+                dataType : 'json',
+
+                 success : function(data) {
+
+                    console.log("data" , data);
+
+                }
+
+                });
+          })
+
+    </script>
+</head>
+<body>
+    学生啊
+<!--    <button id="button" onclick="">112233</button>-->
+    <button>999</button>
+    <table border="1">	<tr th:each="m : ${list}">
+        <!-- 其中m是个临时变量，像for(User u : userList)那样中的u-->
+        <td th:text="${m.name}"/>
+        <td th:text="${m.age}"/>
+    </tr></table>
+
+
+
+</body>
+</html>

@@ -8,4 +8,10 @@ import java.util.Map;
 
 public interface StudentService {
     PageBean<Student> queryPage (Map<String,Object> map);
+
+    int addStudent(Student student);
+
+    boolean deleteOneStudent(String studentId);
+
+    int deleteStudent(List<Integer> ids);
 }

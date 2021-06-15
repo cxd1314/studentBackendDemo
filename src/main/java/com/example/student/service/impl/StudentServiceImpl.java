@@ -29,4 +29,21 @@ public class StudentServiceImpl implements StudentService {
         return bean;
     }
 
+    @Override
+    public int addStudent(Student student) {
+        int result = studentMapper.addStudent(student);
+        return result;
+    }
+
+    @Override
+    public boolean deleteOneStudent(String studentId) {
+        return false;
+    }
+
+    @Override
+    public int deleteStudent(List<Integer> ids) {
+
+        return studentMapper.deleteStudent(ids);
+    }
+
 }

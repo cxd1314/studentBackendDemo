@@ -9,4 +9,10 @@ public interface StudentMapper {
     List<Student> queryList(Map<String,Object> paramMap);
 
     Integer queryCount(Map<String,Object> paramMap);
+
+    int addStudent(Student student);
+
+    boolean deleteOneStudent(String studentId);
+
+    int deleteStudent(List<Integer> ids);
 }
