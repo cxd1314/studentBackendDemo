@@ -29,15 +29,24 @@ public class StudentController {
     public ModelAndView studentList() {
         ModelAndView model = new ModelAndView();
         List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
-        Map<String, Object> m = new HashMap<String, Object>();m.put("name", "name1");
-        m.put("age", "1");list.add(m); m = new HashMap<String, Object>();
-        m.put("name", "name2");m.put("age", "2");list.add(m);
-        m = new HashMap<String, Object>();m.put("name", "name3");
-        m.put("age", "3");list.add(m); m = new HashMap<String, Object>();
-        m.put("name", "name4");m.put("age", "4");list.add(m);
-        m = new HashMap<String, Object>();m.put("name", "name5");
-        m.put("age", "5");list.add(m);
-        model.addObject(list);
+        Map<String, Object> m = new HashMap<String, Object>();
+        m.put("name", "name1");
+        m.put("age", "1");list.add(m);
+        m = new HashMap<String, Object>();
+        m.put("name", "name2");
+        m.put("age", "2");
+        list.add(m);
+        m = new HashMap<String, Object>();
+        m.put("name", "name3");
+        m.put("age", "3");list.add(m);
+        m = new HashMap<String, Object>();
+        m.put("name", "name4");
+        m.put("age", "4");list.add(m);
+        m = new HashMap<String, Object>();
+        m.put("name", "name5");
+        m.put("age", "5");
+        list.add(m);
+        model.addObject("list",list);
         model.setViewName("student");
 
         return  model;

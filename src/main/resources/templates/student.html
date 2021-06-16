@@ -12,7 +12,7 @@
     <script  type="text/javascript"  th:inline="javaScript">
           $(document).ready(function(){
                 console.log("aaa");
-                 alert("aaa")
+                // alert("aaa")
                  $("button").click(function(){
                 alert("aaa");
 
@@ -55,13 +55,17 @@
     学生啊
 <!--    <button id="button" onclick="">112233</button>-->
     <button>999</button>
-    <table border="1">	<tr th:each="m : ${list}">
+    <table border="1" th:width="100" th:height="100">	<tr th:each="m:${list}">
         <!-- 其中m是个临时变量，像for(User u : userList)那样中的u-->
-        <td th:text="${m.name}"/>
+        <td th:width="30" th:height="30" th:text="${m.name}"/>
         <td th:text="${m.age}"/>
     </tr></table>
 
-
+    <form action="#" th:action="@{/student/getStudent}" th:object="${greeting}" method="post">
+        <p>Id: <input type="text" th:field="*{id}" /></p>
+        <p>Message: <input type="text" th:field="*{content}" /></p>
+        <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+    </form>
 
 </body>
 </html>
